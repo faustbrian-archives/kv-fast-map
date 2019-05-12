@@ -5,7 +5,11 @@ import { IKeyValueStoreSync } from "@keeveestore/keeveestore";
 import FastMap from "collections/fast-map";
 
 export class StoreSync<K, T> implements IKeyValueStoreSync<K, T> {
-	private readonly store: FastMap<K, T> = new FastMap<K, T>();
+	private constructor(private readonly store: FastMap<K, T>) {}
+
+	public static new<K, T>(): StoreSync<K, T> {
+		return new StoreSync<K, T>(new FastMap<K, T>());
+	}
 
 	public all(): [K, T][] {
 		return [...this.store.entries()];
