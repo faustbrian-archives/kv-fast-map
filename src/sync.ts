@@ -1,7 +1,4 @@
-// tslint:disable: no-unsafe-any
 import { IKeyValueStoreSync } from "@konceiver/kv";
-// @ts-ignore
-// tslint:disable-next-line: no-submodule-imports
 import FastMap from "collections/fast-map";
 
 export class StoreSync<K, T> implements IKeyValueStoreSync<K, T> {
